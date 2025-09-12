@@ -45,3 +45,20 @@ pip install -r requirements.txt
 # Run migrations and start server
 python manage.py migrate
 python manage.py runserver
+
+```
+🧠 Ideal For
+
+Beginners learning Django & APIs
+
+Developers building their portfolio
+
+Real-world API practice for job readiness
+
+Anyone looking to understand backend architecture
+
+🤝 Contributions
+
+Feel free to fork the repo, suggest improvements, or submit your own Django projects via pull requests!
+
+⭐ Star this repository to support the project and get updates!
