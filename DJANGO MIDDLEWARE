@@ -1,0 +1,203 @@
+🌐 Django Middleware Made Easy
+What is Middleware?
+
+Middleware is like a filter (layer of onion 🧅) between the request (coming from the browser) and the response (going back to the browser).
+
+Each middleware can do some work:
+
+Before the view runs
+
+After the view runs
+
+👉 Example:
+
+AuthenticationMiddleware → attaches the logged-in user to the request.
+
+CsrfViewMiddleware → checks CSRF tokens for POST requests.
+
+✅ Writing Your Own Middleware
+1. Function-based Middleware
+def simple_middleware(get_response):
+    # Runs only once when the server starts
+    print("Middleware Initialized")
+
+    def middleware(request):
+        # Runs for every request BEFORE the view
+        print("Before the view")
+
+        response = get_response(request)  # call next middleware / view
+
+        # Runs for every response AFTER the view
+        print("After the view")
+
+        return response
+
+    return middleware
+
+2. Class-based Middleware
+class SimpleMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+        print("Middleware Initialized")
+
+    def __call__(self, request):
+        print("Before the view")
+        response = self.get_response(request)
+        print("After the view")
+        return response
+
+⚙️ Activating Middleware
+
+In settings.py, add your middleware path to the MIDDLEWARE list:
+
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "myapp.middleware.SimpleMiddleware",   # 👈 your custom middleware
+]
+
+
+👉 Order matters! Example: AuthenticationMiddleware needs SessionMiddleware before it.
+
+🧅 Onion Concept (Middleware Order)
+
+Request passes top → bottom in MIDDLEWARE.
+
+Response passes bottom → top.
+
+If one middleware returns a response early, inner ones (and the view) won’t run.
+
+📌 Special Middleware Hooks
+
+If you write class-based middleware, you can add extra methods:
+
+1. process_view()
+
+Runs just before the view is called.
+
+class ViewMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        return self.get_response(request)
+
+    def process_view(self, request, view_func, view_args, view_kwargs):
+        print(f"Running before view: {view_func.__name__}")
+        return None   # return HttpResponse to stop view
+
+2. process_exception()
+
+Runs if the view raises an error.
+
+class ExceptionMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        return self.get_response(request)
+
+    def process_exception(self, request, exception):
+        print("Exception caught:", exception)
+        from django.http import HttpResponse
+        return HttpResponse("Something went wrong!")
+
+3. process_template_response()
+
+Runs after the view but only if the response is a TemplateResponse.
+
+class TemplateMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        return self.get_response(request)
+
+    def process_template_response(self, request, response):
+        response.context_data["extra"] = "Added by middleware"
+        return response
+
+🎥 Streaming Responses
+
+If your response is StreamingHttpResponse:
+
+if response.streaming:
+    response.streaming_content = wrap_streaming_content(response.streaming_content)
+else:
+    response.content = alter_content(response.content)
+
+⚡ Asynchronous Middleware
+
+If your project uses async views, you can write async middleware too.
+
+Async Function Middleware
+from asgiref.sync import iscoroutinefunction
+from django.utils.decorators import sync_and_async_middleware
+
+@sync_and_async_middleware
+def simple_middleware(get_response):
+    if iscoroutinefunction(get_response):
+        async def middleware(request):
+            print("Async request")
+            response = await get_response(request)
+            return response
+    else:
+        def middleware(request):
+            print("Sync request")
+            response = get_response(request)
+            return response
+    return middleware
+
+Async Class Middleware
+from asgiref.sync import iscoroutinefunction, markcoroutinefunction
+
+class AsyncMiddleware:
+    async_capable = True
+    sync_capable = False
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+        if iscoroutinefunction(get_response):
+            markcoroutinefunction(self)
+
+    async def __call__(self, request):
+        print("Async Middleware")
+        response = await self.get_response(request)
+        return response
+
+🏛 Old vs New Middleware (pre Django 1.10)
+
+Old ones used MIDDLEWARE_CLASSES and methods like:
+
+process_request
+
+process_response
+
+To make them work in new Django, use MiddlewareMixin:
+
+from django.utils.deprecation import MiddlewareMixin
+
+class OldStyleMiddleware(MiddlewareMixin):
+    def process_request(self, request):
+        print("Old style request")
+
+    def process_response(self, request, response):
+        print("Old style response")
+        return response
+
+Middleware = filters around views (onion model).
+
+Can be function or class.
+
+Add to MIDDLEWARE in settings.py.
+
+Special hooks: process_view, process_exception, process_template_response.
+
+Supports sync + async.
+
+Use MiddlewareMixin for old style.
