@@ -1,0 +1,201 @@
+✅ Advanced Django Concepts for Scalability (100 items)
+
+Middleware
+
+Custom Middleware
+
+Lazy Evaluation
+
+QuerySet Evaluation
+
+F() Expressions
+
+Q() Objects
+
+Database Connection Pooling
+
+Caching (Low-level)
+
+Template Caching
+
+Per-view Caching
+
+Cache Versioning
+
+Redis as Cache Backend
+
+Memcached Integration
+
+select_related()
+
+prefetch_related()
+
+annotate()
+
+Subquery()
+
+OuterRef()
+
+Indexes (Database Indexing)
+
+Meta Index Options
+
+Conditional Aggregation
+
+Raw SQL Queries
+
+Custom QuerySets
+
+QuerySet Chaining
+
+Signals Optimization
+
+Disabling Signals in Bulk Ops
+
+Bulk_create()
+
+Bulk_update()
+
+Database Router
+
+Multi-Database Support
+
+Asynchronous Views
+
+ASGI Support
+
+Channels
+
+WebSocket Support
+
+Django Background Tasks
+
+Celery Integration
+
+Database Sharding
+
+Horizontal Scaling
+
+Vertical Scaling
+
+Load Balancing Considerations
+
+WSGI vs ASGI
+
+uWSGI Tuning
+
+Gunicorn Workers Tuning
+
+Query Debugging
+
+Django Debug Toolbar (Advanced Usage)
+
+Logging Configuration
+
+Structured Logging
+
+Custom Management Commands
+
+Admin Performance Optimization
+
+Admin QuerySet Optimization
+
+Model Managers
+
+Custom Model Managers
+
+Model Inheritance (Abstract/Base/Proxy)
+
+ContentType Framework
+
+GenericForeignKey
+
+Permissions at Scale
+
+Object-level Permissions
+
+DRF Throttling (Rate Limiting)
+
+DRF Caching
+
+DRF Pagination (for large datasets)
+
+Serializer Optimization (DRF)
+
+DRF ViewSet Optimization
+
+DRF Prefetching/Select_related
+
+JWT Authentication
+
+Session Engine Optimization
+
+Custom User Models (Advanced)
+
+Custom Authentication Backends
+
+File Storage Backends
+
+S3 Integration for Media
+
+Static Files Strategy (Whitenoise/CDN)
+
+CDN Integration (e.g., Cloudflare)
+
+Security Middleware
+
+CSRF Handling at Scale
+
+DB Connection Lifetime Tuning
+
+Connection Reuse (Persistent Connections)
+
+AutoField vs BigAutoField
+
+Transaction Management
+
+select_for_update()
+
+Atomic Transactions
+
+Savepoint Management
+
+Schema Evolution Tools (like Django Extensions)
+
+Database Views in Django
+
+Materialized Views
+
+Django’s GIS Framework (GeoDjango)
+
+Signals Decoupling Strategy
+
+Health Checks (Django-Health-Check)
+
+Dependency Injection Patterns
+
+Circular Import Management
+
+Settings Management (env, dynaconf, decouple)
+
+Django Configurations (Advanced Settings)
+
+Feature Flags (Waffle)
+
+A/B Testing (Rollout strategies)
+
+Sentry Integration
+
+Prometheus Integration
+
+OpenTelemetry Integration
+
+API Gateway Compatibility (Django Behind NGINX/API Gateway)
+
+Request/Response Cycle Deep Dive
+
+Middleware Ordering Impact
+
+Model Meta Class Deep Dive
+
+ORM Compiler Internals
