@@ -63,6 +63,8 @@ Feel free to fork the repo, suggest improvements, or submit your own Django proj
 
 ⭐ Star this repository to support the project and get updates!
 
+django documentation:https://docs.djangoproject.com/en/5.2/
+
 Important resources
 |   Name                       |               Link                                    |
 |--------------------------|---------------------------------------------------|
