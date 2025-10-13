@@ -63,6 +63,60 @@ Feel free to fork the repo, suggest improvements, or submit your own Django proj
 
 ⭐ Star this repository to support the project and get updates!
 
+Important resources
+|   Name                       |               Link                                    |
+|--------------------------|---------------------------------------------------|
+|Custom Middleware                          |https://youtu.be/ELOgWKQpxB8?si=jUKX3GiJ7Ltj8gGp                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
 
 
 
