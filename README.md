@@ -62,3 +62,67 @@ Anyone looking to understand backend architecture
 Feel free to fork the repo, suggest improvements, or submit your own Django projects via pull requests!
 
 ⭐ Star this repository to support the project and get updates!
+
+
+
+
+|   NAME                        |                                LINK                 |
+|--------------------------|---------------------------------------------------|
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+|                          |                                                   |
+
+
+
+
+
+
+
