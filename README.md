@@ -122,6 +122,28 @@ Feel free to fork the repo, suggest improvements, or submit your own Django proj
 
 
 
+| No. |                      Idea                       |                            What You’ll Learn                             |                 Link                 |
+|-----|--------------------------------------------------|-------------------------------------------------------------------------|-------------------------------------|
+|  1  |              Request Timer                       |        Measure how long a request takes (already done).                 |                                     |
+|  2  |         Add Custom Header to Response            |        Learn to modify outgoing HTTP responses.                         |                                     |
+|  3  |         Block Requests Based on IP               |        Practice accessing request metadata and blocking logic.          |                                     |
+|  4  |         Maintenance Mode Middleware              |        Return a static "site under maintenance" response based on a flag.|                                     |
+|  5  |         User Agent Logger                        |        Log or restrict access based on user-agent (e.g., block bots).   |                                     |
+|  6  |         Enforce HTTPS                            |        Redirect HTTP to HTTPS manually (if not using security middleware).|                                   |
+|  7  |         JWT Token Checker                        |        Parse Authorization header and validate token (basic mock).      |                                     |
+|  8  |         Request Body Logger                      |        Log POST data (with caution — useful for debugging only).        |                                     |
+|  9  |         Locale Detector                          |        Detect language preference via headers and store in session.     |                                     |
+| 10  |         Dark Mode Preference Middleware          |        Read a cookie or header and store theme preference in session.   |                                     |
+| 11  |         API Rate Limiter                         |        Track request count per user/IP in cache and limit requests.     |                                     |
+| 12  |         GeoIP Middleware                         |        Detect country from IP and store for later use (GeoIP libs).     |                                     |
+| 13  |         Session Extension Middleware             |        Reset session expiry on every request (keep-alive effect).       |                                     |
+| 14  |         Header Injection Middleware              |        Inject security headers (e.g., CSP, X-Frame-Options).            |                                     |
+| 15  |         Login Time Tracker                       |        Track time since login and add to request object.                |                                     |
+| 16  |         Custom Request Attribute                 |        Add custom data to the request object for views to access.       |                                     |
+| 17  |         Referrer Tracker                         |        Save the HTTP referer to session or database.                    |                                     |
+| 18  |         Request Path Logger                      |        Log all accessed paths and store in a DB model.                  |                                     |
+| 19  |         Error Masker                             |        Catch exceptions and return generic error messages (use with caution).|                               |
+| 20  |         Response Size Logger                     |        Log the size of the response body in bytes.                      |                                     |
 
 
 
