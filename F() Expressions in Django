@@ -1,0 +1,142 @@
+F() Expressions in Django
+
+F() expressions are Django’s way to reference model fields directly in the database rather than in Python code. This allows you to perform database-level operations efficiently without fetching the data into Python first.
+
+1. Why Use F() Expressions
+
+Avoid race conditions when updating values.
+
+Let the database handle arithmetic or comparison, which is faster.
+
+Useful in atomic operations to ensure correctness in concurrent environments.
+
+2. Importing F
+from django.db.models import F
+
+3. Basic Usage
+
+Assume we have a model:
+
+from django.db import models
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.FloatField()
+    stock = models.IntegerField()
+
+Increment a Field
+from django.db.models import F
+
+# Increase stock by 10
+Product.objects.filter(name="Laptop").update(stock=F('stock') + 10)
+
+
+✅ Important: Using F('stock') + 10 performs the update directly in the database without reading stock into Python first.
+
+Decrement a Field
+# Reduce stock by 1
+Product.objects.filter(name="Laptop").update(stock=F('stock') - 1)
+
+Multiply or Divide a Field
+# Double the price
+Product.objects.update(price=F('price') * 2)
+
+# Halve the price
+Product.objects.update(price=F('price') / 2)
+
+4. Using F in Queries
+
+You can compare one field to another using F():
+
+# Get products where stock is less than price (silly example)
+low_stock_products = Product.objects.filter(stock__lt=F('price'))
+
+
+Here, Django generates SQL comparing two columns directly.
+
+5. Using F with Annotations
+
+F() expressions can be used in annotate to calculate new fields dynamically.
+
+from django.db.models import F, FloatField, ExpressionWrapper
+
+# Create a discounted price field
+products = Product.objects.annotate(
+    discounted_price=ExpressionWrapper(F('price') * 0.9, output_field=FloatField())
+)
+
+for product in products:
+    print(product.name, product.discounted_price)
+
+
+✅ ExpressionWrapper is needed when Django cannot automatically determine the field type.
+
+6. Using F in Ordering
+
+You can order a QuerySet based on F() expressions:
+
+# Order products by discounted price (price * 0.9)
+products = Product.objects.order_by(F('price') * 0.9)
+
+
+The database does the calculation before ordering.
+
+7. Avoid Race Conditions
+
+Consider multiple users updating stock simultaneously. Without F():
+
+p = Product.objects.get(name="Laptop")
+p.stock += 10
+p.save()
+
+
+Two users can overwrite each other’s updates (race condition).
+
+With F():
+
+Product.objects.filter(name="Laptop").update(stock=F('stock') + 10)
+
+
+This is atomic; the database ensures both updates are applied correctly.
+
+8. Combining F() with Q()
+
+You can also combine F() expressions with Q objects for complex queries:
+
+from django.db.models import Q
+
+# Get products where stock < price and price > 100
+products = Product.objects.filter(Q(stock__lt=F('price')) & Q(price__gt=100))
+
+9. Summary
+
+F() expressions reference model fields directly in the database.
+
+Used for arithmetic, comparisons, ordering, and annotations.
+
+Prevent race conditions and improve performance by avoiding fetching data into Python.
+
+Can be combined with annotate, Q objects, and update.
+
+10. Full Example Code
+from django.db import models
+from django.db.models import F, ExpressionWrapper, FloatField
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.FloatField()
+    stock = models.IntegerField()
+
+# Update stock atomically
+Product.objects.filter(name="Laptop").update(stock=F('stock') + 5)
+
+# Compare fields
+low_stock_products = Product.objects.filter(stock__lt=F('price'))
+
+# Annotate discounted price
+products = Product.objects.annotate(
+    discounted_price=ExpressionWrapper(F('price') * 0.9, output_field=FloatField())
+)
+
+for product in products:
+    print(product.name, product.discounted_price)
