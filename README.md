@@ -69,7 +69,7 @@ Important resources
 |   Name                       |               Link                                    |
 |--------------------------|---------------------------------------------------|
 |Custom Middleware                          |https://youtu.be/ELOgWKQpxB8?si=jUKX3GiJ7Ltj8gGp                                                   |
-|QuerySet Evaluation in Django                          |                                                   |
+|QuerySet Evaluation in Django                          |https://github.com/siddengineer/Django-Backend-Development/blob/main/QuerySet%20Evaluation%20in%20Django                                                   |
 |                          |                                                   |
 |                          |                                                   |
 |                          |                                                   |
