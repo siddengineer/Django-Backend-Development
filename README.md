@@ -70,7 +70,7 @@ Important resources
 |--------------------------|---------------------------------------------------|
 |Custom Middleware                          |https://youtu.be/ELOgWKQpxB8?si=jUKX3GiJ7Ltj8gGp                                                   |
 |QuerySet Evaluation in Django                          |https://github.com/siddengineer/Django-Backend-Development/blob/main/QuerySet%20Evaluation%20in%20Django                                                   |
-|F() Expressions in Django                          |                                                   |
+|F() Expressions in Django                          |https://github.com/siddengineer/Django-Backend-Development/blob/main/F()%20Expressions%20in%20Django                                                   |
 |                          |                                                   |
 |                          |                                                   |
 |                          |                                                   |
